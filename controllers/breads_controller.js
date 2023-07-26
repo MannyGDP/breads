@@ -4,7 +4,7 @@ const Bread = require('../models/bread');
 
 //INDEX
 breads.get ('/',(req, res) => {
-    res.render('index', { 
+    res.render('Index', { 
         breads: Bread
     }
     );

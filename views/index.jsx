@@ -1,5 +1,5 @@
 const React = require('react');
-const Default = require('../views/layouts/');
+const Default = require('./views/Index');
 
 function Index({ breads }) {
     return (
