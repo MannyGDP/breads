@@ -13,6 +13,7 @@ const app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
@@ -23,6 +24,11 @@ app.get('/', (req, res) => {
 const breadsController = require('./controllers/breads_controller');
     app.use('/breads', breadsController);
 
+// 404 Page
+app.get('*', (req, res) => {
+    res.render('Error404');
+});
+
 app.listen(PORT, () => {
-    console.log(`app is running on port ${process.env.PORT}`);
+    console.log(`app is running on port ${PORT}`);
 });
