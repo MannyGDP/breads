@@ -4,6 +4,7 @@ const Default = require('./layouts/Default');
 function New() {
     return (
         <Default>
+            <div style={{ backgroundcolor: '#5155', padding: '10px' }}></div>
             <h2>Add a new Bread</h2>
             <div className='backbutton'>
                 <a href='/breads'><button>Go back to Index</button></a>
