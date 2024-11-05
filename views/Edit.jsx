@@ -8,7 +8,7 @@ return (
         <form action={`/breads/${index}?_method=PUT`} method='POST'>
             <label htmlFor='name'>Name</label>
             <input
-            type='type'
+            type='text'
             name='name'
             id='name'
             required
@@ -16,7 +16,7 @@ return (
             />
             <label htmlFor='image'>Image</label>
             <input
-            type='type'
+            type='text'
             name='image'
             id='image'
             defaultValue={ bread.image }
