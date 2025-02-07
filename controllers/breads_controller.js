@@ -4,11 +4,18 @@ const Bread = require('../models/bread');
 
 //INDEX
 breads.get ('/', (req, res) => {
-    res.render('Index', { 
-        breads: Bread,
-        title: 'Index Page MD',
-    }
- );
+    Bread.find()
+    .then(foundBreads => {
+        console.log(foundBreads);
+        res.render('Index', { 
+            breads: foundBreads,
+            title: 'Index Page MD',
+        });
+    })
+    .catch(error => {
+        console.log(error);
+        res.render('Error404');
+    });
 });
 
 // NEW
@@ -16,39 +23,50 @@ breads.get('/new', (req, res) => {
     res.render('New');
 });
 
-
 // Show
-breads.get('/:arrayIndex', (req, res) => {
-    if (Bread[req.params.arrayIndex]) {
-        res.render('Show', {
-            bread: Bread[req.params.arrayIndex],
-            index: req.params.arrayIndex,
-        });
-    } else {
+breads.get('/:id', (req, res) => {
+    Bread.findById(req.params.id)
+    .then(foundBread => {
+        res.render('Show', { 
+            bread: foundBread,
+    });
+
+})
+.catch(err => {
         res.render('Error404');
-    }
+    });
 });
 
+
     //EDIT
-    breads.get('/:arrayIndex/edit', (req, res) => {
-        res.render('Edit', {
-            bread: Bread[req.params.arrayIndex],
-            index: req.params.arrayIndex,
-        });
+    breads.get('/:id/edit', (req, res) => {
+        Bread.findById(req.params.id)
+            .then(foundBread => {
+                if (!foundBread) {
+                    return res.render('Error404');
+                }
+                res.render('Edit', { bread: foundBread });
+            })
+            .catch(error => {
+                console.log(error);
+                res.render('Error404');
+            });
     });
     // CREATE
 breads.post('/', (req, res) => {
+    if (!req.body.image){
+        req.body.image = undefined;
+    }
     if (req.body.hasGluten === 'on') {
         req.body.hasGluten = 'true';
     } else {
         req.body.hasGluten = 'false';
     }
-    Bread.push(req.body);
+    Bread.create(req.body);
     res.redirect('/breads');
 });
 
 
-//
 breads.put('/:arrayIndex', (req, res) => {
     if (req.body.hasGluten === 'on') {
         req.body.hasGluten = true;

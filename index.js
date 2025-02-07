@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Welcome to an Asesome App about Breads!');
+    res.send('Welcome to an Asesome App about Breads! 02/07');
 });
 
 // Breads start

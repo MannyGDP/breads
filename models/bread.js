@@ -6,9 +6,9 @@ const { model, Schema } = mongoose;
 
 const breadSchema = new Schema({
         //we will write our Schema here
-name: { type: String, require: true },
+name: { type: String, required: true },
 hasGluten: Boolean,
-image: { type: String, default: 'http://placeholder.it/500x500.png' },
+image: { type: String, default: 'http://placehold.it/500x500.png' },
 });
 
 // Bread Model
