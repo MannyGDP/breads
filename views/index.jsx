@@ -4,10 +4,10 @@ const Default = require('./layouts/Default');
 function Index({ breads, title }) {
     return (
         <Default title={ title }>
-            <h2>Index Page</h2>
-            <p>I have { breads[0].name } bread for SALE!</p>
+            <h2>Bread Index Page</h2>
+            <p>I we have { breads[0].name } bread for SALE!</p>
             <div className='newButton'>
-                <a href='/breads/new'><button>Add a new bread</button></a>
+                <a href='/breads/new'><button>Add a new bread Manny</button></a>
             </div>
             <ul>
                 { breads.map(bread => {

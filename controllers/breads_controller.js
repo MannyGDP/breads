@@ -9,7 +9,7 @@ breads.get ('/', (req, res) => {
         console.log(foundBreads);
         res.render('Index', { 
             breads: foundBreads,
-            title: 'Index Page MD',
+            title: 'Index Page MD  Manny',
         });
     })
     .catch(error => {
