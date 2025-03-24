@@ -94,8 +94,8 @@ breads.put('/:id', (req, res) => {
     })
 });
 //DESTROY
-breads.delete('/:indexArray', (req, res) => {
-    Bread.findOneAndDelete(req.params.id)
+breads.delete('/:id', (req, res) => {
+    Bread.findByIdAndDelete(req.params.id)
     .then(deletedBread => {
         res.status(303).redirect('/breads');
     })
