@@ -11,6 +11,7 @@ function Show({ bread }) {
                 { bread.hasGluten ? <span> does </span> : <span> does NOT </span>}
                 have Gluten.
             </p>
+            <p>Baked by: { bread.baker }</p>
             <a href={`/breads/${bread.id}/edit`}><button>Edit</button></a>
             <img src={ bread.image } alt={ bread.name} />
             <li><a href="/breads">Go Home</a></li>
