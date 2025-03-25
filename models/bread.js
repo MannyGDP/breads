@@ -15,6 +15,10 @@ baker: {
 }
 });
 
+// helper method
+breadSchema.methods.getBakedBy = function() {
+        return `${this.name} was baked with love by ${this.baker}`;
+}
 // Bread Model
 const Bread = model('Bread', breadSchema);
 
