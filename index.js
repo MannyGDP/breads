@@ -24,11 +24,13 @@ app.get('/', (req, res) => {
     res.send('Welcome to an Asesome App about Breads! 02/07');
 });
 
-
-// Breads start
+// Breads
 const breadsController = require('./controllers/breads_controller');
-// const { default: mongoose } = require('mongoose');
-    app.use('/breads', breadsController);
+app.use('/breads', breadsController);
+
+// Bakers
+const bakersController = require('./controllers/bakers_controller');
+app.use('/bakers', bakersController);
 
 // 404 Page
 app.get('*', (req, res) => {
@@ -38,3 +40,6 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`);
 });
+
+
+// const { default: mongoose } = require('mongoose');
