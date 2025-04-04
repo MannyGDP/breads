@@ -7,7 +7,7 @@ const bakerSeedData = require('../models/baker_seed');
 bakerRouter.get('/data/seed', (req, res) =>  {
     Baker.insertMany(bakerSeedData)
     .then(() => {
-        res.redirect('/bread');
+        res.redirect('/breads');
     })
     .catch(err => {
         res.redirect('Error404');
