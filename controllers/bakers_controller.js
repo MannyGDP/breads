@@ -10,6 +10,7 @@ bakerRouter.get('/data/seed', (req, res) =>  {
         res.redirect('/breads');
     })
     .catch(err => {
+        console.log(err);
         res.redirect('Error404');
     });
 });

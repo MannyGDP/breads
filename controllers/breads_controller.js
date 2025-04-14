@@ -1,7 +1,7 @@
 const express = require('express');
 const breads = express.Router();
 const Bread = require('../models/bread');
-const Baker = require('../models/baker')
+const Baker = require('../models/baker');
 const seedData = require('../models/seed');
 
 //SEED
@@ -42,6 +42,13 @@ breads.get('/new', (req, res) => {
     .catch(err => {
         console.log(err);
         res.redirect('Error404');
+    });
+    breads.get('/:name', (req, res) => {
+        Bread.getAllBybaker(req.params.name)
+        .then(breads => {
+            res.render('Baker', { breads })
+        })
+        .catch(err => { console.error(err)})
     });
 });
 

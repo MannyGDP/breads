@@ -33,13 +33,13 @@ function New({ bakers }) {
             <select name='baker' id='baker'>
                 { bakers.map(baker => (
                     <option value={ baker.id } key={ baker.id }>{ baker.name }</option>
-                ))}
+                ))};
             </select>
             <br /> 
             <input type="submit"/> 
             </form>
         </Default>
-    )
+    );
 };
 
 module.exports = New;

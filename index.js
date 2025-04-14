@@ -41,5 +41,4 @@ app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`);
 });
 
-
 // const { default: mongoose } = require('mongoose');
